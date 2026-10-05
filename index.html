@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>something</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <img id="pumkn" src="pumkn.png" alt="pumpkin">
+      <button onclick="changeEyes1()">Change Eyes1</button>
+        <div>
+             
+             
+             <div id="eyes-container">
+                <img class="visible eyes" src="eye/eyes1.png" alt="eyes">
+                <img class="eyes" src="eye/eye3.webp" alt="eyes">
+                <img class="eyes" src="eye/eyes2.png" alt="eyes">
+            </div>
+            
+            
+            
+        </div>
+        <button onclick="changeEyes2()">Change Eyes2</button>
+        <!-- <div
+>
+            <img class="mouth" src="mouth.webp" alt="mouth">
+            <img class="mouth" src="mouth2.webp" alt="mouth">
+            <img class="mouth" src="mouth3.png" alt="mouth">
+        </div> -->
+       
+    </div>
+
+
+
+    <script src="script.js">
+        function changeEyes1(){
+            var eyes = document.querySelectorAll('.eyes');
+            var currentIndex = Array.from(eyes).findIndex(function(eye) {
+                return eye.classList.contains('visible');
+            });
+            eyes[currentIndex].classList.remove('visible');
+            currentIndex = (currentIndex - 1 + eyes.length) % eyes.length;
+            eyes[currentIndex].classList.add('visible');
+        }
+
+        function changeEyes2(){
+            var eyes = document.querySelectorAll('.eyes');
+            var currentIndex = Array.from(eyes).findIndex(function(eye) {
+                return eye.classList.contains('visible');
+            });
+            eyes[currentIndex].classList.remove('visible');
+            currentIndex = (currentIndex + 1) % eyes.length;
+            eyes[currentIndex].classList.add('visible');
+        }
+    </script>
+</body>
+</html>
